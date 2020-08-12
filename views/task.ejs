@@ -24,9 +24,8 @@
                     <input type="date" name="date" placeholder="type here">
                     <label><h4>Pin Code :</h4></label>
                     <input type="number" name="pin" placeholder="type here">   
-                    <button type="submit">ADD</button>
                     <div id="butn">
-                        <button class="btn button1" type="submit"><i class="fas fa-plus-square"></i> Add Task</button>
+                        <button class="btn button1" type="submit">Add Task</button>
                      </div>
                 </form>
             </div>
@@ -37,22 +36,22 @@
                 <div id="list">
                     <% for(let i of TaskList){ %>
                         <% if(i.status == "completed") { %>
-                     <div>
-                           <div>
-                               <h4><%= i.name %></h4>
-                           </div>
-                           <div>
-                               <p>Email_id : <%= i.email %></p>
-                               <p>Mobile : <%= i.phone %></p>
-                               <p>DOB : <%= i.date %></p>
-                               <p>Pin Code : <%= i.pin %></p>
-                           </div>
-                           <div id="options">
-                            <a href="/delete-task/?id=<%= i._id %>" class="red" style="color: red;"><i class="far fa-times-circle" ></i></a>
-                           </div>
-                           <br>
-                           <div style="border-bottom: 1px solid black;"></div>
-                     </div>     
+                            <div>
+                                <div>
+                                    <h4><%= i.name %></h4>
+                                </div>
+                                <div>
+                                    <p>Email_id : <%= i.email %></p>
+                                    <p>Mobile : <%= i.phone %></p>
+                                    <p>DOB : <%= i.date %></p>
+                                    <p>Pin Code : <%= i.pin %></p>
+                                </div>
+                                <div id="options">
+                                    <a href="/delete-task/?id=<%= i._id %>" class="red" style="color: red;"><i class="far fa-times-circle" ></i></a>
+                                </div>
+                                <br>
+                                <div style="border-bottom: 1px solid black;"></div>
+                            </div>     
                      <%  } %>  
                      <% } %>   
                 </div>
