@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task</title>
+        <link rel="stylesheet" type="text/css" href="/css/task.css">
+        <script src="https://kit.fontawesome.com/91e4a42abb.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- header -->
+        <div id="header">
+            <h1>TASK</h1>
+        </div>
+        <!-- container -->
+        <div id="container">
+            <div id="container-1">
+                <form method="POST" action="/create-task">
+                    <label><h4>Name :</h4></label>
+                    <input type="text" name="name" placeholder="type your name here">
+                    <label><h4>Email_id :</h4></label>
+                    <input type="email" name="email" placeholder="abc@gmail.com">
+                    <label><h4>Mobile :</h4></label>
+                    <input type="number" name="phone" placeholder="type here">
+                    <label><h4>DOB :</h4></label>
+                    <input type="date" name="date" placeholder="type here">
+                    <label><h4>Pin Code :</h4></label>
+                    <input type="number" name="pin" placeholder="type here">   
+                    <button type="submit">ADD</button>
+                    <div id="butn">
+                        <button class="btn button1" type="submit"><i class="fas fa-plus-square"></i> Add Task</button>
+                     </div>
+                </form>
+            </div>
+            <div id="container-2">
+                <div>
+                    <h2 style="border-bottom: 1px solid black;">List</h2>
+                </div>
+                <div id="list">
+                    <% for(let i of TaskList){ %>
+                        <% if(i.status == "completed") { %>
+                     <div>
+                           <div>
+                               <h4><%= i.name %></h4>
+                           </div>
+                           <div>
+                               <p>Email_id : <%= i.email %></p>
+                               <p>Mobile : <%= i.phone %></p>
+                               <p>DOB : <%= i.date %></p>
+                               <p>Pin Code : <%= i.pin %></p>
+                           </div>
+                           <div id="options">
+                            <a href="/delete-task/?id=<%= i._id %>" class="red" style="color: red;"><i class="far fa-times-circle" ></i></a>
+                           </div>
+                           <br>
+                           <div style="border-bottom: 1px solid black;"></div>
+                     </div>     
+                     <%  } %>  
+                     <% } %>   
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
